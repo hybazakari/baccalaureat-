@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.effect.DropShadow?>
+
+<VBox xmlns="http://javafx.com/javafx/21.0.2" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.baccalaureat.controller.MainMenuController"
+      spacing="25" alignment="CENTER" styleClass="main-menu">
+    
+    <padding>
+        <Insets top="50" right="50" bottom="50" left="50"/>
+    </padding>
+    
+    <!-- Game Logo/Title -->
+    <VBox alignment="CENTER" spacing="5">
+        <Label text="🎯" style="-fx-font-size: 72px;">
+            <effect>
+                <DropShadow color="rgba(78, 204, 163, 0.4)" radius="20"/>
+            </effect>
+        </Label>
+        <Label text="Baccalauréat+" styleClass="game-title"/>
+        <Label text="The ultimate word game" styleClass="subtitle"/>
+    </VBox>
+    
+    <!-- Spacer -->
+    <Region VBox.vgrow="ALWAYS" maxHeight="50"/>
+    
+    <!-- Game Stats Preview -->
+    <HBox spacing="30" alignment="CENTER">
+        <VBox alignment="CENTER" styleClass="info-card" spacing="5">
+            <Label text="🏆" style="-fx-font-size: 24px;"/>
+            <Label text="Best Score" styleClass="info-label"/>
+            <Label fx:id="highScoreLabel" text="0" styleClass="info-value"/>
+        </VBox>
+        <VBox alignment="CENTER" styleClass="info-card" spacing="5">
+            <Label text="🎮" style="-fx-font-size: 24px;"/>
+            <Label text="Games Played" styleClass="info-label"/>
+            <Label fx:id="gamesPlayedLabel" text="0" styleClass="info-value"/>
+        </VBox>
+        <VBox alignment="CENTER" styleClass="info-card" spacing="5">
+            <Label text="📊" style="-fx-font-size: 24px;"/>
+            <Label text="Categories" styleClass="info-label"/>
+            <Label fx:id="categoriesCountLabel" text="0" styleClass="info-value"/>
+        </VBox>
+    </HBox>
+    
+    <!-- Spacer -->
+    <Region VBox.vgrow="ALWAYS" maxHeight="30"/>
+    
+        <!-- Main Actions -->
+        <VBox spacing="15" alignment="CENTER">
+        <Button fx:id="startSoloButton" text="👤  Solo Mode" 
+            onAction="#handleStartSolo" styleClass="menu-button" prefWidth="280"/>
+        <Button fx:id="startMultiplayerButton" text="👥  Multiplayer Mode" 
+            onAction="#handleStartMultiplayer" styleClass="multiplayer-button" prefWidth="280"/>
+        <Button fx:id="remoteMultiplayerButton" text="🌐  Multijoueur à distance" 
+            onAction="#handleRemoteMultiplayer" styleClass="secondary-button" prefWidth="280"/>
+        <Button fx:id="howToPlayButton" text="📖  How to Play" 
+            onAction="#handleHowToPlay" styleClass="secondary-button" prefWidth="280"/>
+        <HBox spacing="15" alignment="CENTER">
+            <Button fx:id="categoryConfigButton" text="📂 Categories" onAction="#handleCategoryConfig" styleClass="secondary-button" prefWidth="200"/>
+            <Button fx:id="settingsButton" text="⚙️ Settings" onAction="#handleSettings" styleClass="secondary-button" prefWidth="200"/>
+        </HBox>
+        </VBox>
+    
+    <!-- Spacer -->
+    <Region VBox.vgrow="ALWAYS"/>
+    
+    <!-- Footer -->
+    <Label text="Version 2.0 • Created with ❤️ in JavaFX" 
+           style="-fx-text-fill: #888; -fx-font-size: 11px;"/>
+</VBox>

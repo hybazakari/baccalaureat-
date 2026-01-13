@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.baccalaureat.controller.CategoryConfigController" styleClass="root">
+   <children>
+      <!-- Header -->
+      <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="header-section">
+         <children>
+            <Label styleClass="page-title" text="Category Management" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#onClose" styleClass="button-secondary" text="Close" prefWidth="120" />
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </HBox>
+
+      <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+         <content>
+            <VBox spacing="20.0">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+               </padding>
+               
+               <!-- Add New Category Section -->
+               <VBox spacing="15.0" styleClass="form-section">
+                  <children>
+                     <Label styleClass="section-title" text="Add a new category" />
+                     
+                     <GridPane hgap="15.0" vgap="10.0">
+                        <columnConstraints>
+                           <ColumnConstraints minWidth="120.0" prefWidth="120.0" />
+                           <ColumnConstraints hgrow="ALWAYS" minWidth="200.0" />
+                           <ColumnConstraints minWidth="80.0" prefWidth="80.0" />
+                           <ColumnConstraints hgrow="ALWAYS" minWidth="150.0" />
+                        </columnConstraints>
+                        <rowConstraints>
+                           <RowConstraints />
+                        </rowConstraints>
+                        
+                        <Label text="Display Name *:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <TextField fx:id="displayNameField" promptText="ex: Animal" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        
+                        <Label text="Icon :" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                        <TextField fx:id="iconField" promptText="📝" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                     </GridPane>
+                     
+                     <VBox spacing="5.0">
+                        <Label text="Description :" />
+                        <TextArea fx:id="hintField" prefRowCount="2" promptText="Short description of the category" wrapText="true" />
+                     </VBox>
+                     
+                     <HBox alignment="CENTER_LEFT" spacing="10.0">
+                        <children>
+                           <Button fx:id="addButton" mnemonicParsing="false" onAction="#onAddCategory" styleClass="button-primary" text="Add" prefWidth="120" />
+                           <Button mnemonicParsing="false" onAction="#onCancel" styleClass="button-secondary" text="Clear" prefWidth="120" />
+                           <Region HBox.hgrow="ALWAYS" />
+                           <Label fx:id="statusLabel" visible="false" />
+                        </children>
+                     </HBox>
+                  </children>
+                  <padding>
+                     <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                  </padding>
+               </VBox>
+
+               <!-- Categories List Section -->
+               <VBox spacing="15.0" styleClass="table-section" VBox.vgrow="ALWAYS">
+                  <children>
+                     <Label styleClass="section-title" text="Existing categories" />
+                     
+                     <TableView fx:id="categoryTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                           <TableColumn fx:id="displayNameColumn" minWidth="150.0" prefWidth="200.0" text="Display Name" />
+                           <TableColumn fx:id="iconColumn" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" text="Icon" />
+                           <TableColumn fx:id="enabledColumn" maxWidth="80.0" minWidth="80.0" prefWidth="80.0" text="Enabled" />
+                           <TableColumn fx:id="actionsColumn" minWidth="300.0" prefWidth="300.0" sortable="false" text="Actions" />
+                        </columns>
+                     </TableView>
+                  </children>
+                  <padding>
+                     <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                  </padding>
+               </VBox>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>
